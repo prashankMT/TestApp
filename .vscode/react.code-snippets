@@ -1,0 +1,19 @@
+{
+  "new-functional-react-component": {
+  "scope": "javascript",
+  "prefix": "new-functional-comp",
+  "body": [
+      "import React from 'react'",
+      "import PropTypes from 'prop-types'",
+      "",
+      "function ${1:${TM_DIRECTORY/(\\/.*\\/)//}} (props) {",
+      "\treturn <div>${2:Content}$0</div>",
+      "}",
+      "",
+      "${1:Comp}.propTypes = {",
+      "}",
+      "",
+      "export default ${1:Comp}"
+    ]
+  }
+}

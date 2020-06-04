@@ -1,0 +1,55 @@
+{
+  "name": "accreditations-ui",
+  "description": "Admin and Consumer certifications dashboard",
+  "version": "1.0.0",
+  "main": "app/index.js",
+  "author": "Dileep",
+  "bugs": {
+    "url": "https://github.com/MindTickle/accreditations-ui/issues"
+  },
+  "homepage": "https://github.com/MindTickle/accreditations-ui#readme",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline --config ./webpack/webpack.config.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#feature/certifications",
+    "antd": "^3.26.13",
+    "classnames": "^2.2.6",
+    "moment": "^2.24.0",
+    "mt-ui-core": "git+ssh://git@github.com/MindTickle/mt-ui-core.git#feature/certifications",
+    "node-sass-utils": "^1.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "better-npm-run": "^0.1.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "css-loader": "^3.4.2",
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "getenv": "^0.7.0",
+    "graphql-request": "^2.0.0",
+    "less": "^3.11.1",
+    "less-loader": "^4.1.0",
+    "less-vars-to-js": "^1.3.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.1.2",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

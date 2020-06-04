@@ -1,0 +1,40 @@
+{
+  "plugins": ["babel", "react"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "window": true,
+    "Promise": true,
+    "INFINITY": true,
+    "module": true,
+    "require": true,
+    "UploadeManager": true,
+    "Set": true,
+    "SENTRY_KEY": true,
+    "SENTRY_ENVIRONMENT": true,
+    "SENTRY_RELEASE": true,
+    "SENTRY_PROJECT_ID": true,
+    "VERSION": true,
+    "COMMITHASH": true,
+    "BRANCH": true,
+    "SENTRY_ENABLE": true
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "rules": {
+    "react/no-deprecated": 0,
+    "react/prop-types": 0,
+    "react/jsx-key": 0,
+    "react/display-name": 0
+  }
+}

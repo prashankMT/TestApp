@@ -1,0 +1,11 @@
+{
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  "editor.formatOnSave": true,
+  "editor.suggest.shareSuggestSelections": true,
+  "search.usePCRE2": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

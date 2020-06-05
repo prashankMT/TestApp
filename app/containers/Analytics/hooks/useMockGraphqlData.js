@@ -345,14 +345,18 @@ const data = [
 ];
 const useGraphqlData = () => {
   return {
-    data: {
-      list: data.slice(0, 10),
+    list: {
+      data: data.slice(0, 10),
+      total: 34,
+      start: 0,
+      hasMore: true
+    },
+    aggregations: {
       pendingCount: 8,
       accreditedCount: 16,
-      unsuccessfulCount: 10,
-      lastUpdatedAt: "1591259677"
+      unsuccessfulCount: 10
     },
-    total: 34,
+    lastUpdatedAt: Math.ceil(Date.now() / 1000),
     loaded: true,
     loading: false,
     hasError: false,

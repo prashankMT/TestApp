@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import useGraphqlData from "../../hooks/useGraphqlData";
+import useGraphqlData from "../../hooks/useMockGraphqlData";
 
 import List from "../List";
 import Header from "../Header";

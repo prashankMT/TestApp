@@ -2,17 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import messages from "./messages";
 
-const Title = ({ count }) => {
+import { StyledTitle } from "./style";
+
+const Title = ({ count, className }) => {
   return (
-    <div>
+    <StyledTitle className={className}>
       {count && <span>{count}</span>}
+      <span>&nbsp;</span>
       <span>{messages.accreditations}</span>
-    </div>
+    </StyledTitle>
   );
 };
 
 Title.propTypes = {
-  count: PropTypes.number
+  count: PropTypes.number,
+  className: PropTypes.string
 };
 
 export default Title;

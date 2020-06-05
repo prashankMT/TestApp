@@ -5,6 +5,9 @@ import Status from "./Status";
 import Thumbnail from "./Thumbnail";
 import ModulesCompleted from "./ModulesCompleted";
 
+import { StyledListTable } from "./style";
+import messages from "./messages";
+
 const Item = ({
   name,
   status,
@@ -14,26 +17,37 @@ const Item = ({
   completedModules
 }) => {
   return (
-    <>
-      <Thumbnail
-        name={name}
-        dueDate={dueDate}
-        dueDateEnabled={dueDateEnabled}
-      />
-      <Status status={status} />
-      <ModulesCompleted total={totalModules} completed={completedModules} />
-    </>
+    <tr>
+      <td className="accreditation-column">
+        <Thumbnail
+          name={name}
+          dueDate={dueDate}
+          dueDateEnabled={dueDateEnabled}
+        />
+      </td>
+      <td className="status-column">
+        <Status status={status} />
+      </td>
+      <td className="module-completed-column">
+        <ModulesCompleted total={totalModules} completed={completedModules} />
+      </td>
+    </tr>
   );
 };
 Item.propTypes = ItemShape;
 
 const Content = ({ data }) => {
   return (
-    <div>
+    <StyledListTable>
+      <tr>
+        <th className="accreditation-column">{messages.accreditations}</th>
+        <th className="status-column">{messages.status}</th>
+        <th className="module-completed-column">{messages.moduleCompleted}</th>
+      </tr>
       {data.map((item, index) => (
         <Item {...item} key={`${item.id}_${index}`} />
       ))}
-    </div>
+    </StyledListTable>
   );
 };
 

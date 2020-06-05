@@ -1,34 +1,51 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Tooltip from "@mindtickle/mt-ui-components/Tooltip";
-import Icon, { ICON_MAP } from "@mindtickle/mt-ui-components/Icon";
+import Popover from "@mindtickle/mt-ui-components/Tooltip";
+import Icon from "@mindtickle/mt-ui-components/Icon";
+
+import { StyledUpdateInfo, StyledInfo } from "./style";
 
 import { formattedDateTime } from "../../utils";
 import messages from "./messages";
 const Content = ({ lastUpdatedAtForOthers, lastUpdatedAtForAccreditation }) => {
   return (
-    <div>
-      <span>
-        {messages.accreditationsUpdatedOn}
-        {formattedDateTime(lastUpdatedAtForAccreditation)}
-      </span>
-      <span>
-        {messages.othersUpdatedOn}
-        {formattedDateTime(lastUpdatedAtForOthers)}
-      </span>
-    </div>
+    <StyledInfo>
+      <div>
+        <span>{messages.accreditationsUpdatedOn}</span>
+        <span>&nbsp;</span>
+        <span>{formattedDateTime(lastUpdatedAtForAccreditation)}</span>
+      </div>
+      <div className="margin-second-line">
+        <span>{messages.othersUpdatedOn}</span>
+        <span>&nbsp;</span>
+        <span>{formattedDateTime(lastUpdatedAtForOthers)}</span>
+      </div>
+    </StyledInfo>
   );
 };
 
 const UpdateInfo = ({
   lastUpdatedAtForOthers,
-  lastUpdatedAtForAccreditation
+  lastUpdatedAtForAccreditation,
+  className
 }) => {
   return (
-    <>
+    <StyledUpdateInfo className={className}>
       <span>{messages.lastUpdated}:</span>
+      <span>&nbsp;</span>
       <span>{formattedDateTime(lastUpdatedAtForAccreditation)}</span>
-      <Tooltip
+      <Popover
+        title={
+          <Content
+            lastUpdatedAtForOthers={lastUpdatedAtForOthers}
+            lastUpdatedAtForAccreditation={lastUpdatedAtForAccreditation}
+          />
+        }
+        trigger="hover"
+      >
+        <Icon className="accreditation-info-style" type="info" />
+      </Popover>
+      {/* <Popover
         title={
           <Content
             lastUpdatedAtForOthers={lastUpdatedAtForOthers}
@@ -36,15 +53,16 @@ const UpdateInfo = ({
           />
         }
       >
-        <Icon type={ICON_MAP.info} />
-      </Tooltip>
-    </>
+        <Icon className="accreditation-info-style" type="info" />
+      </Popover> */}
+    </StyledUpdateInfo>
   );
 };
 
 UpdateInfo.propTypes = {
   lastUpdatedAtForOthers: PropTypes.string.isRequired,
-  lastUpdatedAtForAccreditation: PropTypes.string.isRequired
+  lastUpdatedAtForAccreditation: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 export default UpdateInfo;

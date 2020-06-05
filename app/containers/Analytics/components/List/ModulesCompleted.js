@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { StyledModuleCompleted } from "./style";
+
 const ModulesCompleted = ({ completed, total }) => {
   return (
-    <div>
+    <StyledModuleCompleted>
       {completed}/{total}
-    </div>
+    </StyledModuleCompleted>
   );
 };
 

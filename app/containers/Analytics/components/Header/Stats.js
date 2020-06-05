@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import messages from "./messages";
 
+import { StyledStats } from "./style";
+
 const Loader = () => {
   return <div>Loader</div>;
 };
@@ -10,23 +12,24 @@ const Stats = ({
   loading,
   pendingCount,
   accreditedCount,
-  unsuccessfulCount
+  unsuccessfulCount,
+  className
 }) => {
   if (loading) return <Loader />;
   return (
-    <div>
+    <StyledStats className={className}>
       <span>
         {accreditedCount} {messages.accredited}
       </span>
-      <span>,</span>
+      <span>,&nbsp;</span>
       <span>
         {unsuccessfulCount} {messages.unsuccessful}
       </span>
-      <span>,</span>
+      <span>,&nbsp;</span>
       <span>
         {pendingCount} {messages.pending}
       </span>
-    </div>
+    </StyledStats>
   );
 };
 
@@ -34,7 +37,8 @@ Stats.propTypes = {
   pendingCount: PropTypes.number,
   accreditedCount: PropTypes.number,
   unsuccessfulCount: PropTypes.number,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  className: PropTypes.string
 };
 
 export default Stats;

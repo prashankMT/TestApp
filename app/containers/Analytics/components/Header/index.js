@@ -5,7 +5,7 @@ import Title from "./Title";
 import Stats from "./Stats";
 import UpdateInfo from "./UpdateInfo";
 
-import StyledHeader from "./style";
+import { StyledHeader } from "./style";
 
 const Header = ({
   totalCount,
@@ -17,12 +17,15 @@ const Header = ({
 }) => {
   return (
     <StyledHeader>
-      <Title count={totalCount} />
-      <UpdateInfo
-        lastUpdatedAtForOthers={lastUpdatedAtForOthers}
-        lastUpdatedAtForAccreditation={lastUpdatedAtForAccreditation}
-      />
+      <div className="heading-name-wrapper">
+        <Title count={totalCount} />
+        <UpdateInfo
+          lastUpdatedAtForOthers={lastUpdatedAtForOthers}
+          lastUpdatedAtForAccreditation={lastUpdatedAtForAccreditation}
+        />
+      </div>
       <Stats
+        className="stats-style"
         unsuccessfulCount={unsuccessfulCount}
         accreditedCount={accreditedCount}
         pendingCount={pendingCount}

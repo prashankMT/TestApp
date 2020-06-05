@@ -2,22 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 import messages from "./messages";
 
+import { StyledStatus } from "./style";
+
 const getDisplayValueOfStatus = () => {
   switch (status) {
     case "ACCREDITED":
-      return { className: "", title: messages.accredited };
+      return { className: "accredited-color", title: messages.accredited };
     case "UNSUCCESSFUL":
     case "REVOCATED":
-      return { className: "", title: messages.unsuccessful };
+      return { className: "unsuccessful-color", title: messages.unsuccessful };
     case "PENDING":
-      return { className: "", title: messages.pending };
+      return { className: "pending-color", title: messages.pending };
     default:
-      return "--";
+      return { className: "pending-color", title: "--" };
   }
 };
 const Status = ({ status }) => {
   const { className, title } = getDisplayValueOfStatus(status);
-  return <div className={className}>{title}</div>;
+  return <StyledStatus className={className}>{title}</StyledStatus>;
 };
 
 Status.propTyeps = {

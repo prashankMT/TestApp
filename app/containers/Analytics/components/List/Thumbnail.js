@@ -1,31 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon, { ICON_MAP } from "@mindtickle/mt-ui-components/Icon";
+import Icon from "@mindtickle/mt-ui-components/Icon";
 
 import { formattedDate } from "../../utils";
 import messages from "./messages";
 
-const DueDate = ({ dueDate }) => {
+import { StyledThumbnail } from "./style";
+
+const DueDate = ({ dueDate, className }) => {
   return (
-    <div>
+    <div className={className}>
       <span>{messages.dueDate}</span>
       <span>{formattedDate(dueDate)}</span>
     </div>
   );
 };
 DueDate.propTypes = {
-  dueDate: PropTypes.string.isRequired
+  dueDate: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 const Thumbnail = ({ name, dueDate, dueDateEnabled }) => {
   return (
-    <div>
-      <div>
-        <Icon type={ICON_MAP.accreditation} />
-        <span>{name}</span>
+    <StyledThumbnail>
+      <Icon type="accreditation" className="accreditation-icon" />
+      <div className="accreditation-text-wrapper">
+        <div className="accreditation-name">{name}</div>
+        {dueDateEnabled && !!dueDate && (
+          <DueDate dueDate={dueDate} className="accreditation-due-date" />
+        )}
       </div>
-      {dueDateEnabled && !!dueDate && <DueDate dueDate={dueDate} />}
-    </div>
+    </StyledThumbnail>
   );
 };
 

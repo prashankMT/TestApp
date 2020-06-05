@@ -5,6 +5,7 @@ import theme from "@mindtickle/mt-ui-components/styles/theme";
 export const StyledListTable = styled.table`
   width: 100%;
   padding: 0 20px;
+  table-layout: fixed;
 
   th {
     ${mixins.blackLink()};
@@ -13,7 +14,7 @@ export const StyledListTable = styled.table`
   }
 
   td {
-    border-top: 2px solid ${theme.colors.ALTO};
+    border-top: 1px solid ${theme.colors.ALTO};
     padding: 16px 20px 16px 0;
   }
 
@@ -53,6 +54,7 @@ export const StyledThumbnail = styled.div`
     display: inline-block;
     vertical-align: top;
     margin-left: 8px;
+    width: calc(100% - 24px);
 
     .accreditation-name {
       font-size: 13px;

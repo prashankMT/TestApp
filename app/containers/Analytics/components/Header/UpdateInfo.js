@@ -31,9 +31,9 @@ const UpdateInfo = ({
 }) => {
   return (
     <StyledUpdateInfo className={className}>
-      <span>{messages.lastUpdated}:</span>
-      <span>&nbsp;</span>
-      <span>{formattedDateTime(lastUpdatedAtForAccreditation)}</span>
+      <div className="common-info-style">{messages.lastUpdated}:</div>
+      <div className="common-info-style">&nbsp;</div>
+      <div className="common-info-style">{formattedDateTime(lastUpdatedAtForAccreditation)}</div>
       <Popover
         title={
           <Content
@@ -45,16 +45,6 @@ const UpdateInfo = ({
       >
         <Icon className="accreditation-info-style" type="info" />
       </Popover>
-      {/* <Popover
-        title={
-          <Content
-            lastUpdatedAtForOthers={lastUpdatedAtForOthers}
-            lastUpdatedAtForAccreditation={lastUpdatedAtForAccreditation}
-          />
-        }
-      >
-        <Icon className="accreditation-info-style" type="info" />
-      </Popover> */}
     </StyledUpdateInfo>
   );
 };

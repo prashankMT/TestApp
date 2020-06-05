@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "@mindtickle/mt-ui-components/Icon";
+import EllipsisTooltip from "@mindtickle/mt-ui-components/EllipsisTooltip";
 
 import { formattedDate } from "../../utils";
 import messages from "./messages";
@@ -25,7 +26,15 @@ const Thumbnail = ({ name, dueDate, dueDateEnabled }) => {
     <StyledThumbnail>
       <Icon type="accreditation" className="accreditation-icon" />
       <div className="accreditation-text-wrapper">
-        <div className="accreditation-name">{name}</div>
+        <EllipsisTooltip
+          title={name}
+          showTooltipWhenEllipsis={true}
+          placement="bottom"
+          wrapperClassName="accreditation-name"
+        >
+          {name}
+        </EllipsisTooltip>
+        {/* <div className="accreditation-name">{name}</div> */}
         {dueDateEnabled && !!dueDate && (
           <DueDate dueDate={dueDate} className="accreditation-due-date" />
         )}

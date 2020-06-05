@@ -11,9 +11,17 @@ export const StyledUpdateInfo = styled.div`
   color: ${theme.colors.GREY};
   line-height: 24px;
   font-style: italic;
+  ${mixins.clearfix()};
+
+  .common-info-style {
+    float: left;
+  }
 
   .accreditation-info-style {
     padding-left: 4px;
+    font-size: 14px;
+    color: ${theme.colors.GREY};
+    line-height: 24px;
   }
 `;
 

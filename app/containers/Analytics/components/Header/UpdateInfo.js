@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Popover from "@mindtickle/mt-ui-components/Tooltip";
+import Popover from "@mindtickle/mt-ui-components/Popover";
 import Icon from "@mindtickle/mt-ui-components/Icon";
 
 import { StyledUpdateInfo, StyledInfo } from "./style";
@@ -13,12 +13,16 @@ const Content = ({ lastUpdatedAtForOthers, lastUpdatedAtForAccreditation }) => {
       <div>
         <span>{messages.accreditationsUpdatedOn}</span>
         <span>&nbsp;</span>
-        <span>{formattedDateTime(lastUpdatedAtForAccreditation)}</span>
+        <span className="date-style">
+          {formattedDateTime(lastUpdatedAtForAccreditation)}
+        </span>
       </div>
       <div className="margin-second-line">
         <span>{messages.othersUpdatedOn}</span>
         <span>&nbsp;</span>
-        <span>{formattedDateTime(lastUpdatedAtForOthers)}</span>
+        <span className="date-style">
+          {formattedDateTime(lastUpdatedAtForOthers)}
+        </span>
       </div>
     </StyledInfo>
   );
@@ -37,7 +41,7 @@ const UpdateInfo = ({
         {formattedDateTime(lastUpdatedAtForAccreditation)}
       </div>
       <Popover
-        title={
+        content={
           <Content
             lastUpdatedAtForOthers={lastUpdatedAtForOthers}
             lastUpdatedAtForAccreditation={lastUpdatedAtForAccreditation}

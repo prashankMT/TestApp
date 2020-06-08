@@ -39,11 +39,17 @@ export const StyledStats = styled.div`
 `;
 
 export const StyledInfo = styled.div`
+  width: 288px;
   font-size: 13px;
   line-height: 20px;
+  color: ${theme.colors.SHARK};
 
   .margin-second-line {
     margin-top: 10px;
+  }
+
+  .date-style {
+    font-weight: 600;
   }
 `;
 

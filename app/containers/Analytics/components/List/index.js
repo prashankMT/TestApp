@@ -1,14 +1,16 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import { StyledInfiniteLoader } from "./style";
+import InfiniteLoader from "@mindtickle/mt-ui-components/InfiniteLoader";
+
+import { StyledList } from "./style";
 
 import withErrorHandler from "../../hocs/withErrorHandler";
 
 import Loader, { RowLoader } from "./Loader";
 import Content from "./Content";
+import NoSearchResults from "./NoResult";
 
 const List = ({ data, loading, loadmore, hasMore }) => {
-  console.log(data, "--------------"); //eslint-disable-line
   const infiniteLoaderProps = useMemo(() => ({
     hasMore: hasMore,
     loadMore: loadmore,
@@ -18,9 +20,15 @@ const List = ({ data, loading, loadmore, hasMore }) => {
   }));
   if (loading) return <Loader />;
   return (
-    <StyledInfiniteLoader {...infiniteLoaderProps}>
-      <Content data={data} />
-    </StyledInfiniteLoader>
+    <StyledList>
+      {!!data.length ? (
+        <InfiniteLoader {...infiniteLoaderProps}>
+          <Content data={data} />
+        </InfiniteLoader>
+      ) : (
+        <NoSearchResults />
+      )}
+    </StyledList>
   );
 };
 

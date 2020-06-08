@@ -56,8 +56,8 @@ const UpdateInfo = ({
 };
 
 UpdateInfo.propTypes = {
-  lastUpdatedAtForOthers: PropTypes.string.isRequired,
-  lastUpdatedAtForAccreditation: PropTypes.string.isRequired,
+  lastUpdatedAtForOthers: PropTypes.number.isRequired,
+  lastUpdatedAtForAccreditation: PropTypes.number.isRequired,
   className: PropTypes.string
 };
 

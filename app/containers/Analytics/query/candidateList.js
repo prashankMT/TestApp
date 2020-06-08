@@ -1,6 +1,7 @@
 const candidateList = `listCandidates(pagination: $pagination) {
     total
     hasMore
+    cursor
     data {
       accreditation {
         id

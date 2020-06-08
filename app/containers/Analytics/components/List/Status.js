@@ -4,7 +4,7 @@ import messages from "./messages";
 
 import { StyledStatus } from "./style";
 
-const getDisplayValueOfStatus = () => {
+const getDisplayValueOfStatus = status => {
   switch (status) {
     case "ACCREDITED":
       return { className: "accredited-color", title: messages.accredited };

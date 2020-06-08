@@ -2,7 +2,6 @@ import styled from "styled-components";
 import mixins from "@mindtickle/mt-ui-components/styles/mixins";
 import theme from "@mindtickle/mt-ui-components/styles/theme";
 import Skeleton from "@mindtickle/mt-ui-components/Skeleton";
-import InfiniteLoader from "@mindtickle/mt-ui-components/InfiniteLoader";
 
 export const StyledListTable = styled.table`
   width: 100%;
@@ -109,7 +108,26 @@ export const StyledModuleCompleted = styled.div`
   color: ${theme.colors.SHARK};
 `;
 
-export const StyledInfiniteLoader = styled(InfiniteLoader)`
+export const StyledList = styled.div`
   height: calc(100% - 65px);
   overflow-y: auto;
+  position: relative;
+`;
+
+export const StyleNoResult = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  .noSearchResultsImage {
+    margin: 16px;
+    display: inline-block;
+  }
+
+  .noSearchResultsTextStyle {
+    margin: 16px;
+    ${mixins.blackLink()};
+  }
 `;

@@ -1,8 +1,6 @@
-/*eslint-disable*/
 import { useMemo } from "react";
 import useQuery from "./useQuery";
-import useClient from "./useQuery";
-import { combinedQuery, listQuery } from "../query";
+import { combinedQuery } from "../query";
 import { useCallback } from "react";
 
 const itemParser = item => {
@@ -32,10 +30,10 @@ const itemParser = item => {
 
 const listParser = ({ cursor, total, hasMore, data }) => {
   return {
-    start: cursor,
     total,
-    hasMore,
-    data: data.map(itemParser)
+    start: cursor,
+    hasMore: hasMore,
+    data: [] //data.map(itemParser)
   };
 };
 
@@ -71,12 +69,13 @@ const getVariables = (userId, from) => {
 
 const useGraphqlData = userId => {
   const variables = useMemo(() => getVariables(userId), [userId]);
-  const { data, loading, loaded, hasError, error } = useQuery(
+  const [{ data, loading, loaded, hasError, error }, fetchmore] = useQuery(
     combinedQuery,
     variables
   );
 
-  let start = 0;
+  // const [_, fetchmore] = useQuery(listQuery, variables, false); //eslint-disable-line
+
   let list = {};
   let aggregations = {};
 
@@ -84,18 +83,13 @@ const useGraphqlData = userId => {
     const rawList = data.user.user.listCandidates;
     const rawAggregations = data.user.user.accreditationAgrregate;
 
-    start = list.start;
-
     list = listParser(rawList);
     aggregations = aggregationParser(rawAggregations);
   }
 
-  const loadmore = useCallback(async () => {
-    const [client] = useClient();
-    const variables = getVariables(userId, start);
-    const data = await client.request(listQuery, variables);
-    return listParser(data);
-  }, [start, userId]);
+  const loadmore = useCallback(() => {
+    return fetchmore(list.start, 10);
+  }, [list.start]);
 
   return {
     list,

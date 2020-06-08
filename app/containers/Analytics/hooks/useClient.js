@@ -7,7 +7,7 @@ const useClient = () => {
   const graphQLClient = useMemo(() => {
     return new GraphQLClient(endpoint, {
       headers: {
-        "x-token": "c0UGYM_huwfNxzHpbXiqI4seCpxf_p6z"
+        "x-token": "u3f6KGeiUMGu9Han6o-xlUZwOKNW1j8x"
       }
     });
   });

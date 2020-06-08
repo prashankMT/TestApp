@@ -5,7 +5,7 @@ import Status from "./Status";
 import Thumbnail from "./Thumbnail";
 import ModulesCompleted from "./ModulesCompleted";
 
-import NoSearchResults from "../NoSearchResults";
+// import NoSearchResults from "../NoSearchResults/NoResult";
 
 import { StyledListTable } from "./style";
 import messages from "./messages";
@@ -38,35 +38,29 @@ const Item = ({
 };
 Item.propTypes = ItemShape;
 
-const NoResultsFound = () => {
-  return (
-    <tr>
-      <td colSpan="3" className="empty-result-column">
-        <NoSearchResults />
-      </td>
-    </tr>
-  );
-};
-
 const Content = ({ data }) => {
   return (
     <StyledListTable>
-      <tr>
-        <th className="accreditation-column">{messages.accreditations}</th>
-        <th className="status-column">{messages.status}</th>
-        <th className="module-completed-column">{messages.moduleCompleted}</th>
-      </tr>
-      {data.length === 0 && <NoResultsFound />}
-      {data.length != 0 &&
-        data.map((item, index) => (
+      <thead>
+        <tr>
+          <th className="accreditation-column">{messages.accreditations}</th>
+          <th className="status-column">{messages.status}</th>
+          <th className="module-completed-column">
+            {messages.moduleCompleted}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
           <Item {...item} key={`${item.id}_${index}`} />
         ))}
+      </tbody>
     </StyledListTable>
   );
 };
 
 const ItemShape = {
-  dueDate: PropTypes.string,
+  dueDate: PropTypes.number,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   totalModules: PropTypes.number.isRequired,

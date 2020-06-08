@@ -8,6 +8,7 @@ import UpdateInfo from "./UpdateInfo";
 import { StyledHeader } from "./style";
 
 const Header = ({
+  loading,
   totalCount,
   pendingCount,
   accreditedCount,
@@ -25,6 +26,7 @@ const Header = ({
         />
       </div>
       <Stats
+        loading={loading}
         className="stats-style"
         unsuccessfulCount={unsuccessfulCount}
         accreditedCount={accreditedCount}

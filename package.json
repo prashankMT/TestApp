@@ -16,6 +16,7 @@
     "@mindtickle/mt-ui-components": "git+ssh://git@github.com/MindTickle/mt-ui-components.git#feature/certifications",
     "antd": "^3.26.13",
     "classnames": "^2.2.6",
+    "deepmerge": "^4.2.2",
     "moment": "^2.24.0",
     "mt-ui-core": "git+ssh://git@github.com/MindTickle/mt-ui-core.git#feature/certifications",
     "node-sass-utils": "^1.1.2",

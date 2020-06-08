@@ -17,7 +17,7 @@ const DueDate = ({ dueDate, className }) => {
   );
 };
 DueDate.propTypes = {
-  dueDate: PropTypes.string.isRequired,
+  dueDate: PropTypes.number.isRequired,
   className: PropTypes.string
 };
 
@@ -44,7 +44,7 @@ const Thumbnail = ({ name, dueDate, dueDateEnabled }) => {
 };
 
 Thumbnail.propTypes = {
-  dueDate: PropTypes.string,
+  dueDate: PropTypes.number,
   name: PropTypes.string.isRequired,
   dueDateEnabled: PropTypes.bool.isRequired
 };

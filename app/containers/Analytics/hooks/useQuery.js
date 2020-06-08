@@ -1,10 +1,12 @@
-import { useReducer, useMemo } from "react";
+import { useReducer, useMemo, useCallback } from "react";
+import deepmerge from "deepmerge";
 import useClient from "./useClient";
 
 const action = {
   trigger: "TRIGGER",
   success: "SUCCESS",
-  failed: "FAILED"
+  failed: "FAILED",
+  loadmore: "LOADMORE"
 };
 
 function reducer(state, { type, data, error }) {
@@ -33,6 +35,14 @@ function reducer(state, { type, data, error }) {
         hasError: true,
         data: undefined
       };
+    case action.loadmore:
+      return {
+        error,
+        loaded: true,
+        loading: false,
+        hasError: false,
+        data: deepmerge(state.data, data)
+      };
     default:
       return state;
   }
@@ -46,24 +56,41 @@ const initialState = {
   data: undefined
 };
 
-const useQuery = (query, variables) => {
+const useQuery = (query, variables, trigger = true) => {
   const [client] = useClient();
   const [state, dispatch] = useReducer(reducer, initialState);
   try {
     useMemo(() => {
-      dispatch({ type: action.trigger });
-      client
-        .request(query, variables)
-        .then(data => {
-          dispatch({ type: action.success, data });
-        })
-        .catch(error => {
-          const composedError = new Error(error);
-          composedError.errorCode = 600;
-          dispatch({ type: action.failed, error: composedError });
-        });
-    }, [query, variables]);
-    return state;
+      if (trigger) {
+        dispatch({ type: action.trigger });
+        client
+          .request(query, variables)
+          .then(data => {
+            dispatch({ type: action.success, data });
+          })
+          .catch(error => {
+            const composedError = new Error(error);
+            composedError.errorCode = 600;
+            dispatch({ type: action.failed, error: composedError });
+          });
+      }
+    }, [query, variables, trigger]);
+
+    const fetchmore = useCallback(
+      (from, size = 10) => {
+        return client
+          .request(query, { ...variables, pagination: { from, size } })
+          .then(data => {
+            dispatch({
+              type: action.loadmore,
+              data
+            });
+          });
+      },
+      [state]
+    );
+
+    return [state, fetchmore];
   } catch (error) {
     throw error;
   }

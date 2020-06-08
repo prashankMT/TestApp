@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import useGraphqlData from "../../hooks/useMockGraphqlData";
+import useGraphqlData from "../../hooks/useGraphqlData";
 
 import List from "../List";
 import Header from "../Header";
@@ -42,7 +42,7 @@ const Wrapper = ({ lastUpdatedAtForOthers, userId }) => {
 };
 
 Wrapper.propTypes = {
-  lastUpdatedAtForOthers: PropTypes.string.isRequired
+  lastUpdatedAtForOthers: PropTypes.number.isRequired
 };
 
 export default Wrapper;

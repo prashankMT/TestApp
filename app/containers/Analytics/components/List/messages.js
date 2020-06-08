@@ -4,6 +4,7 @@ const messages = {
   pending: "Pending",
   accreditations: "Accreditations",
   status: "Status",
+  noDataAvailable: "There are no Accreditations available for this Learner.",
   moduleCompleted: "Module Completed"
 };
 

@@ -8,7 +8,7 @@ const Analytics = ({ lastUpdatedAt, userId }) => {
 };
 
 Analytics.propTypes = {
-  lastUpdatedAt: PropTypes.string.isRequired,
+  lastUpdatedAt: PropTypes.number.isRequired,
   userId: PropTypes.string.isRequired
 };
 

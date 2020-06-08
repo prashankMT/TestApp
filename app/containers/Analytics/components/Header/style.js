@@ -29,6 +29,13 @@ export const StyledStats = styled.div`
   font-size: 13px;
   color: ${theme.colors.GREY};
   line-height: 20px;
+
+  .stats-loader-style {
+    width: 80px;
+    display: inline-block;
+    margin-top: 2px;
+    margin-right: 12px;
+  }
 `;
 
 export const StyledInfo = styled.div`

@@ -33,7 +33,9 @@ const UpdateInfo = ({
     <StyledUpdateInfo className={className}>
       <div className="common-info-style">{messages.lastUpdated}:</div>
       <div className="common-info-style">&nbsp;</div>
-      <div className="common-info-style">{formattedDateTime(lastUpdatedAtForAccreditation)}</div>
+      <div className="common-info-style">
+        {formattedDateTime(lastUpdatedAtForAccreditation)}
+      </div>
       <Popover
         title={
           <Content

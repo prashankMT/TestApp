@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import mixins from "@mindtickle/mt-ui-components/styles/mixins";
 import theme from "@mindtickle/mt-ui-components/styles/theme";
+import Skeleton from "@mindtickle/mt-ui-components/Skeleton";
 
 export const StyledListTable = styled.table`
   width: 100%;
@@ -38,6 +39,16 @@ export const StyledListTable = styled.table`
   .module-completed-column {
     width: 25%;
     text-align: right;
+  }
+
+  .golaHoga.ant-skeleton .ant-skeleton-content .ant-skeleton-title {
+    margin: 0;
+  }
+`;
+
+export const StyledSkeleton = styled(Skeleton)`
+  &.ant-skeleton .ant-skeleton-content .ant-skeleton-title {
+    margin: 0;
   }
 `;
 

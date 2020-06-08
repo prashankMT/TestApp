@@ -1,12 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import messages from "./messages";
-
+import Loader from "./loader";
 import { StyledStats } from "./style";
-
-const Loader = () => {
-  return <div>Loader</div>;
-};
 
 const Stats = ({
   loading,

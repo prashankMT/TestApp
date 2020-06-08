@@ -24,7 +24,7 @@ DueDate.propTypes = {
 const Thumbnail = ({ name, dueDate, dueDateEnabled }) => {
   return (
     <StyledThumbnail>
-      <Icon type="accreditation" className="accreditation-icon" />
+      <Icon type="certificate" className="accreditation-icon" />
       <div className="accreditation-text-wrapper">
         <EllipsisTooltip
           title={name}

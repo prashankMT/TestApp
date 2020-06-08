@@ -2,6 +2,7 @@ import styled from "styled-components";
 import mixins from "@mindtickle/mt-ui-components/styles/mixins";
 import theme from "@mindtickle/mt-ui-components/styles/theme";
 import Skeleton from "@mindtickle/mt-ui-components/Skeleton";
+import InfiniteLoader from "@mindtickle/mt-ui-components/InfiniteLoader";
 
 export const StyledListTable = styled.table`
   width: 100%;
@@ -103,4 +104,9 @@ export const StyledModuleCompleted = styled.div`
   font-size: 13px;
   line-height: 20px;
   color: ${theme.colors.SHARK};
+`;
+
+export const StyledInfiniteLoader = styled(InfiniteLoader)`
+  height: calc(100% - 65px);
+  overflow-y: auto;
 `;

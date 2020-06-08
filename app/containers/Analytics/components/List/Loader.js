@@ -13,11 +13,11 @@ const RowLoader = () => {
               avatar: {
                 size: "small",
                 shape: "square",
-                width: "20px",
+                width: "16px",
                 height: "20px"
               },
               title: {
-                width: "100%",
+                width: "92%",
                 height: "20px",
                 style: { margin: "0", borderRadius: "4px" }
               }
@@ -30,7 +30,7 @@ const RowLoader = () => {
               active: true,
               avatar: false,
               title: {
-                width: "100p%",
+                width: "80%",
                 height: "20px",
                 style: { margin: "0", borderRadius: "4px" }
               }
@@ -43,9 +43,9 @@ const RowLoader = () => {
               active: true,
               avatar: false,
               title: {
-                width: "100%",
+                width: "44%",
                 height: "20px",
-                style: { margin: "0", borderRadius: "4px" }
+                style: { margin: "0", borderRadius: "4px", float: "right" }
               }
             }}
           />
@@ -66,11 +66,11 @@ const RepeatItems = () => {
             avatar: {
               size: "small",
               shape: "square",
-              width: "20px",
+              width: "16px",
               height: "20px"
             },
             title: {
-              width: "100%",
+              width: "92%",
               height: "20px",
               style: { margin: "0", borderRadius: "4px" }
             }
@@ -83,7 +83,7 @@ const RepeatItems = () => {
             active: true,
             avatar: false,
             title: {
-              width: "100%",
+              width: "80%",
               height: "20px",
               style: { margin: "0", borderRadius: "4px" }
             }
@@ -96,9 +96,9 @@ const RepeatItems = () => {
             active: true,
             avatar: false,
             title: {
-              width: "100%",
+              width: "44%",
               height: "20px",
-              style: { margin: "0", borderRadius: "4px" }
+              style: { margin: "0", borderRadius: "4px", float: "right" }
             }
           }}
         />
@@ -143,9 +143,9 @@ const Loader = () => {
               active: true,
               avatar: false,
               title: {
-                width: "60%",
+                width: "80%",
                 height: "20px",
-                style: { margin: "0", borderRadius: "4px" }
+                style: { margin: "0", borderRadius: "4px", float: "right" }
               }
             }}
           />

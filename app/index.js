@@ -8,7 +8,7 @@ import Analytics from "~/containers/Analytics";
 
 const Test = () => {
   return (
-    <div style={{ height: "440px", width: "502px" }}>
+    <div style={{ height: "440px", width: "502px", background: "white" }}>
       <Analytics lastUpdatedAt={"1591253935685"} userId={"497fb18ba348e6d0"} />
     </div>
   );

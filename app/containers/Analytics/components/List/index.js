@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import InfiniteLoader from "@mindtickle/mt-ui-components/InfiniteLoader";
+import { StyledInfiniteLoader } from "./style";
 
 import withErrorHandler from "../../hocs/withErrorHandler";
 
@@ -18,9 +18,9 @@ const List = ({ data, loading, loadmore, hasMore }) => {
   }));
   if (loading) return <Loader />;
   return (
-    <InfiniteLoader {...infiniteLoaderProps}>
+    <StyledInfiniteLoader {...infiniteLoaderProps}>
       <Content data={data} />
-    </InfiniteLoader>
+    </StyledInfiniteLoader>
   );
 };
 

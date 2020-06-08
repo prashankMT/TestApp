@@ -5,6 +5,8 @@ import Status from "./Status";
 import Thumbnail from "./Thumbnail";
 import ModulesCompleted from "./ModulesCompleted";
 
+import NoSearchResults from "../NoSearchResults";
+
 import { StyledListTable } from "./style";
 import messages from "./messages";
 
@@ -36,6 +38,16 @@ const Item = ({
 };
 Item.propTypes = ItemShape;
 
+const NoResultsFound = () => {
+  return (
+    <tr>
+      <td colSpan="3" className="empty-result-column">
+        <NoSearchResults />
+      </td>
+    </tr>
+  );
+};
+
 const Content = ({ data }) => {
   return (
     <StyledListTable>
@@ -44,9 +56,11 @@ const Content = ({ data }) => {
         <th className="status-column">{messages.status}</th>
         <th className="module-completed-column">{messages.moduleCompleted}</th>
       </tr>
-      {data.map((item, index) => (
-        <Item {...item} key={`${item.id}_${index}`} />
-      ))}
+      {data.length === 0 && <NoResultsFound />}
+      {data.length != 0 &&
+        data.map((item, index) => (
+          <Item {...item} key={`${item.id}_${index}`} />
+        ))}
     </StyledListTable>
   );
 };

@@ -6,6 +6,7 @@ import InfiniteLoader from "@mindtickle/mt-ui-components/InfiniteLoader";
 
 export const StyledListTable = styled.table`
   width: 100%;
+  height: 100%;
   padding: 0 20px;
   table-layout: fixed;
 
@@ -42,8 +43,10 @@ export const StyledListTable = styled.table`
     text-align: right;
   }
 
-  .golaHoga.ant-skeleton .ant-skeleton-content .ant-skeleton-title {
-    margin: 0;
+  .empty-result-column {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 `;
 

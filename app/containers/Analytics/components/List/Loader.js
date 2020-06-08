@@ -4,7 +4,7 @@ import { StyledListTable } from "./style";
 
 const RowLoader = () => {
   return (
-    <StyledListTable>
+    <StyledListTable style={{ height: "auto" }}>
       <tr>
         <td className="accreditation-column">
           <Skeleton
